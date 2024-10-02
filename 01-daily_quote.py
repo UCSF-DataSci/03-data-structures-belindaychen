@@ -12,22 +12,30 @@ Hint: Look up `random.choice()` to select a random item from a list. You can use
 """
 
 import random
-from datetime import date
+from datetime import date, timedelta
 
 
 quotes = [
-    # Create a list of quotes here
+    "Heehee",
+    "Please I can't think of any more quotes",
+    "How many quotes should I write",
+    "More quotes...",
+    "Is this enough quotes",
+    "Maybe one more quote",
+    "Last quote :-)"
 ]
 
 def get_quote_of_the_day(quotes):
     todays_quote = None
-
-    # Your code here
     
+    today = date.today() 
+    random.seed(today.toordinal())
+    todays_quote = random.choice(quotes)
+
     return todays_quote
 
 if __name__ == "__main__":
     print(get_quote_of_the_day(quotes))
 
 # Cron job (add this to your crontab):
-# 0 8 * * * /usr/bin/python3 /path/to/quote_generator.py >> /path/to/daily_quote.txt
+# 0 8 * * * /usr/bin/python3 /workspaces/03-data-structures-belindaychen/01-daily-quote.py >> /workspaces/03-data-structures-belindaychen/daily_quote.txt
